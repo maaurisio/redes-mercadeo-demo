@@ -2,6 +2,7 @@ import { PieChart } from 'lucide-react';
 import type { Ruta } from '../lib/router';
 import { useApp } from '../state/AppContext';
 import { fmt } from '../lib/format';
+import { DonutSVG } from '../components/Charts';
 import { Card, CardHeader, Encabezado, Pill, Vacio } from '../components/ui';
 
 const COLORES = ['#4f46e5', '#f59e0b', '#fb923c', '#f97316', '#8b5cf6', '#64748b', '#10b981'];
@@ -21,11 +22,6 @@ export function Distribucion({ navegar }: { navegar: (r: Ruta) => void }) {
   ];
   const sumaSegmentos = k.activos + k.sinPedido;
   const total = k.total || 1;
-  const gradient = partes.slice(0, 6).reduce((acc, p, i) => {
-    const desde = partes.slice(0, i).reduce((a, x) => a + x.n, 0) / total * 100;
-    const hasta = desde + (p.n / total) * 100;
-    return `${acc}${p.color} ${desde}% ${hasta}%${i < 5 ? ',' : ''}`;
-  }, 'conic-gradient(');
 
   const ir = (key: string) => { setSegmentoActivo(key); navegar('segmentos'); };
 
@@ -36,12 +32,11 @@ export function Distribucion({ navegar }: { navegar: (r: Ruta) => void }) {
         <Card>
           <CardHeader titulo="Composición" subtitulo={`${fmt(k.total)} socios válidos`} />
           <div className="flex flex-col items-center p-6">
-            <div className="flex h-48 w-48 items-center justify-center rounded-full" style={{ background: `${gradient})` }}>
-              <div className="flex h-32 w-32 flex-col items-center justify-center rounded-full bg-white shadow-inner">
-                <span className="text-2xl font-semibold tabular-nums text-slate-900">{fmt(k.total)}</span>
-                <span className="text-[11px] text-slate-500">socios</span>
-              </div>
-            </div>
+            <DonutSVG
+              partes={partes.slice(0, 6).map((p) => ({ label: p.label, value: p.n, color: p.color }))}
+              total={k.activos + k.inactivos1 + k.inactivos2 + k.inactivos3 + k.durmientes + k.historicos}
+              centro={fmt(k.total)}
+            />
             <p className="mt-4 text-xs text-slate-500">Anillo: segmentos excluyentes de RN-04. Bienvenida se muestra aparte por ser un atributo transversal.</p>
           </div>
         </Card>

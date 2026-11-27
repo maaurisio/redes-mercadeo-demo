@@ -2,12 +2,13 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 import type { ReactNode } from 'react';
 import type {
   AppState, CuentaConfig, CuentaId, EntradaAuditoria, Rol, Contacto, Corte,
-  ParsedFile, Plantilla, PreviewState, Socio,
+  ParsedFile, Plantilla, PreviewState, RegistroCarga, Socio,
 } from '../types';
 import type { FactorAjuste, Metodo } from '../utils/projections';
 import { aplicarMapeo, computeKpis, parseExcel } from '../lib/excel';
 import { clearState, loadState, saveState } from '../lib/storage';
 import { SEGMENTOS } from '../lib/segmentos';
+import { seedAuditoria, seedGestiones, seedHistorialCargas, seedTareas } from '../utils/seed';
 
 const ARCHIVO_INICIAL = '01_Red_Mediana_383_Corte1.xlsx';
 const ARCHIVO_CUENTA_B = '05_Cuenta_B_Aislada_120_Socios.xlsx';
@@ -17,15 +18,6 @@ const CUENTAS_INICIALES: CuentaConfig[] = [
   { id: 'B', titular: 'Carlos Ramírez', plan: 'lider', socios: 120, estado: 'Activa', duracionCampana: 21, metaDefault: 4500 },
   { id: 'C', titular: 'Lucía Torres', plan: 'inicial', socios: 45, estado: 'Suspendida', motivo: 'Perfil de demostración suspendido', duracionCampana: 21, metaDefault: 5000 },
 ];
-
-const auditoriaInicial: EntradaAuditoria[] = [{
-  id: 'AUD-INICIAL',
-  fecha: '26/11/26, 9:00 a.m.',
-  actor: 'Sistema',
-  cuenta: 'Sistema',
-  accion: 'Estado inicial del prototipo',
-  motivo: 'Datos ficticios de demostración — sin efectos reales',
-}];
 
 const estadoInicial = (): AppState => ({
   cortes: [],
@@ -52,7 +44,8 @@ const estadoInicial = (): AppState => ({
     origen: 'precargada',
   },
   cuentas: CUENTAS_INICIALES,
-  auditoria: auditoriaInicial,
+  auditoria: seedAuditoria(),
+  historialCargas: seedHistorialCargas(),
 });
 
 function normalizar(cargado: AppState | null): AppState {
@@ -62,7 +55,8 @@ function normalizar(cargado: AppState | null): AppState {
     ...base,
     ...cargado,
     cuentas: Array.isArray(cargado.cuentas) && cargado.cuentas.length ? cargado.cuentas : base.cuentas,
-    auditoria: Array.isArray(cargado.auditoria) ? cargado.auditoria : base.auditoria,
+    auditoria: Array.isArray(cargado.auditoria) && cargado.auditoria.length ? cargado.auditoria : base.auditoria,
+    historialCargas: Array.isArray(cargado.historialCargas) && cargado.historialCargas.length ? cargado.historialCargas : base.historialCargas,
     manuales: cargado.manuales ?? {},
     lineaBase: cargado.lineaBase === undefined ? base.lineaBase : cargado.lineaBase,
   };
@@ -129,17 +123,32 @@ export function AppProvider({ children }: { children: ReactNode }) {
   }, [state.rol, state.cuenta]);
 
   const commitParsed = useCallback((parsed: ParsedFile) => {
+    const fecha = new Date().toLocaleString('es-MX', { dateStyle: 'short', timeStyle: 'short' });
     const corte: Corte = {
       ...parsed,
       id: `${Date.now()}-${parsed.fileName}`,
-      importadoEn: new Date().toLocaleString('es-MX', { dateStyle: 'short', timeStyle: 'short' }),
+      importadoEn: fecha,
       kpis: computeKpis(parsed.validas, parsed.meta),
+    };
+    const registro: RegistroCarga = {
+      id: `CARGA-${corte.id}`,
+      fecha,
+      usuario: 'Líder demo',
+      archivo: parsed.fileName,
+      campana: parsed.campana,
+      filas: parsed.validas.length,
+      puntos: corte.kpis.puntos,
+      cuenta: parsed.cuenta,
+      nota: `${parsed.duplicadas.length} duplicadas · ${parsed.observadas.length} observadas`,
     };
     setState((prev) => ({
       ...prev,
       cortes: [...prev.cortes, corte],
       activeCorteId: corte.id,
       cuenta: parsed.cuenta,
+      historialCargas: [...prev.historialCargas, registro],
+      contactos: prev.contactos.length ? prev.contactos : seedGestiones(corte),
+      tareas: Object.keys(prev.tareas).length ? prev.tareas : seedTareas(corte),
     }));
   }, []);
 
@@ -149,21 +158,27 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setPreview({ parsed, campanaDestino: parsed.campana, mapping });
   }, []);
 
-  const quickLoad = useCallback(async (fileName: string, confirmar = false) => {
+  const mostrarError = useCallback((mensaje: string) => {
+    setError(mensaje);
+    if (typeof window !== 'undefined') window.alert(mensaje);
+  }, []);
+
+  const quickLoad = useCallback(async (fileName: string, confirmar = true) => {
     setCargando(true);
     setError(null);
     try {
-      const response = await fetch(`${import.meta.env.BASE_URL}mock/${encodeURIComponent(fileName)}`);
-      if (!response.ok) throw new Error(`No se pudo leer ${fileName} (${response.status})`);
+      const url = `${import.meta.env.BASE_URL}data/mock_excel/${encodeURIComponent(fileName)}`;
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`No se pudo leer ${fileName} (HTTP ${response.status})`);
       const parsed = parseExcel(await response.arrayBuffer(), fileName);
       if (confirmar) commitParsed(parsed);
       else abrirPreview(parsed);
     } catch (e) {
-      setError(e instanceof Error ? e.message : 'Error al leer el archivo');
+      mostrarError(e instanceof Error ? e.message : `Error al leer ${fileName}`);
     } finally {
       setCargando(false);
     }
-  }, [abrirPreview, commitParsed]);
+  }, [abrirPreview, commitParsed, mostrarError]);
 
   useEffect(() => {
     if (arranque.current) return;
@@ -178,11 +193,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
     try {
       abrirPreview(parseExcel(await file.arrayBuffer(), file.name));
     } catch (e) {
-      setError(e instanceof Error ? e.message : 'Error al leer el archivo');
+      mostrarError(e instanceof Error ? `No se pudo procesar ${file.name}: ${e.message}` : `Error al leer ${file.name}`);
     } finally {
       setCargando(false);
     }
-  }, [abrirPreview]);
+  }, [abrirPreview, mostrarError]);
 
   const confirmarImport = useCallback(() => {
     if (!preview?.parsed) return;

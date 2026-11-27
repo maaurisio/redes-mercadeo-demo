@@ -3,6 +3,7 @@ import { TrendingUp } from 'lucide-react';
 import { useApp } from '../state/AppContext';
 import { fmt, incentivo } from '../lib/format';
 import { brechaMeta, fmtVariacion, proyectar, variacion } from '../utils/projections';
+import { BarChartSVG } from '../components/Charts';
 import { Barra, Card, CardHeader, Encabezado, KpiCard, Pill, Vacio } from '../components/ui';
 
 export function RealVsEsperado() {
@@ -30,6 +31,17 @@ export function RealVsEsperado() {
         <KpiCard etiqueta="Puntos reales" valor={fmt(real)} detalle={activeCorte.fileName} tono="emerald" />
         <KpiCard etiqueta="Incentivo real" valor={`${incentivo(real)}%`} detalle="escala de red" />
       </div>
+
+      <Card className="mt-5">
+        <CardHeader titulo="Comparativa visual" subtitulo="Línea base, proyección revisada y puntos reales" />
+        <div className="px-5 py-4">
+          <BarChartSVG datos={[
+            { label: 'Línea base', value: lineBase, color: '#64748B' },
+            { label: 'Revisada', value: revisada, color: '#6366F1' },
+            { label: 'Real', value: real, color: '#10B981' },
+          ]} />
+        </div>
+      </Card>
 
       <div className="mt-5 grid gap-5 lg:grid-cols-2">
         <Card>

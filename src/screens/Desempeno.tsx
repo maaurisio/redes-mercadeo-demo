@@ -3,6 +3,7 @@ import { ArrowDown, ArrowUp, BarChart3 } from 'lucide-react';
 import { useApp } from '../state/AppContext';
 import { fmt, incentivo, numero, texto } from '../lib/format';
 import { brechaMeta } from '../utils/projections';
+import { BarChartSVG } from '../components/Charts';
 import { Barra, Card, CardHeader, Encabezado, Pill, Vacio } from '../components/ui';
 
 type Orden = 'puntos' | 'cumplimiento';
@@ -49,6 +50,13 @@ export function Desempeno() {
       />
       <Card>
         <CardHeader titulo="Ranking" subtitulo={`Meta de red: ${fmt(meta)} pts · meta por líder proporcional al tamaño de subred`} />
+        {filas.length > 0 && (
+          <div className="px-5 pt-5">
+            <BarChartSVG
+              datos={filas.map((f) => ({ label: f.id.slice(-3), value: f.puntos, tooltip: `${f.nombre}: ${fmt(f.puntos)} pts · ${f.incentivo}% incentivo` }))}
+            />
+          </div>
+        )}
         {filas.length === 0 ? <Vacio mensaje="Sin líderes en la selección" /> : (
           <div className="overflow-x-auto">
             <table className="w-full text-sm">

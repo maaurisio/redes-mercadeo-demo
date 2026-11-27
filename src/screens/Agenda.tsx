@@ -5,15 +5,10 @@ import { setSocioSeleccionado } from '../lib/seleccion';
 import { useApp } from '../state/AppContext';
 import { fmt, numero, texto } from '../lib/format';
 import { SEGMENTOS, segmentoPorKey } from '../lib/segmentos';
+import { FASES_AGENDA } from '../utils/seed';
 import { Card, CardHeader, Encabezado, Pill, Vacio, inputClass } from '../components/ui';
 
-const FASES = [
-  { desde: 1, hasta: 3, titulo: 'Bienvenida y Monedero', claves: ['bienvenida', 'monedero'] },
-  { desde: 4, hasta: 7, titulo: 'Inactivos recientes', claves: ['inactivo_1', 'compro_antes'] },
-  { desde: 8, hasta: 12, titulo: 'Durmientes + catálogo digital', claves: ['durmiente', 'inactivo_2'] },
-  { desde: 13, hasta: 17, titulo: 'Inactivos 3 e históricos', claves: ['inactivo_3', 'historico'] },
-  { desde: 18, hasta: 21, titulo: 'Cierre de puntos', claves: ['sin_pedido'] },
-];
+const FASES = FASES_AGENDA;
 const ESTADOS = ['Pendiente', 'Contactado', 'Compromiso', 'Sin interés', 'Completado'];
 
 export function Agenda({ navegar }: { navegar: (r: Ruta) => void }) {

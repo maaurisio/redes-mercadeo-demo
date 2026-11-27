@@ -8,7 +8,8 @@
 
 - React 18 + Vite 6 + TypeScript (strict)
 - Tailwind CSS v4
-- SheetJS (`xlsx`) para leer y exportar archivos `.xlsx` reales en el navegador
+- SheetJS (`xlsx`) para importar archivos `.xlsx` reales en el navegador
+- ExcelJS para exportar los 3 reportes con formato ejecutivo, fórmulas, filtros y pestañas
 - Persistencia en `localStorage` (historial de cortes, rol, filtros, prioridades, gestiones, plantillas y línea base)
 
 ## Requisitos
@@ -38,8 +39,8 @@ npm run typecheck # sólo verificación de TypeScript
 
 Los archivos Excel y el manifest se generaron en la Fase 1 y están versionados en:
 
-- `data/mock_excel/` — 5 archivos `.xlsx` + `seed_data_manifest.json`
-- `public/mock/` — copia servida al navegador para las cargas rápidas
+- `data/mock_excel/` — 5 archivos `.xlsx` + `seed_data_manifest.json` (fuente del generador)
+- `public/data/mock_excel/` — copia servida en producción (Vercel) para las cargas rápidas
 
 | Archivo | Contenido |
 |---|---|
@@ -57,7 +58,7 @@ El generador usa semilla fija `random.seed(42)`, por lo que es reproducible:
 
 ```powershell
 & C:\Users\mauri\.local\bin\uv.exe run --with pandas --with openpyxl python generate_mock_data.py
-Copy-Item data/mock_excel/* -Destination public/mock -Force
+Copy-Item data/mock_excel/* -Destination public/data/mock_excel -Force
 ```
 
 Si `uv` no está en esa ruta, instálalo o usa `uv run --with pandas --with openpyxl python generate_mock_data.py`.

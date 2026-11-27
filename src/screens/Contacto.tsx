@@ -4,12 +4,12 @@ import type { Ruta } from '../lib/router';
 import { getSocioSeleccionado } from '../lib/seleccion';
 import { useApp } from '../state/AppContext';
 import { fmt, texto } from '../lib/format';
-import { Btn, Card, Campo, Encabezado, Pill, Vacio, inputClass } from '../components/ui';
+import { Btn, Card, CardHeader, Campo, Encabezado, Pill, Vacio, inputClass } from '../components/ui';
 
 const ESTADOS = ['Pendiente', 'Contactado', 'Compromiso', 'Sin interés', 'Completado'];
 
 export function Contacto({ navegar }: { navegar: (r: Ruta) => void }) {
-  const { sociosActivos, activeCorte, addContacto, setTarea } = useApp();
+  const { state, sociosActivos, activeCorte, addContacto, setTarea } = useApp();
   const [id, setId] = useState(() => getSocioSeleccionado() ?? '200101');
   const socio = sociosActivos.find((s) => String(s.ID_Socio) === id) ?? sociosActivos[0];
   const [canal, setCanal] = useState('WhatsApp');
@@ -100,6 +100,24 @@ export function Contacto({ navegar }: { navegar: (r: Ruta) => void }) {
           </Card>
         </div>
       </div>
+
+      <Card className="mt-5">
+        <CardHeader titulo="Gestiones registradas" subtitulo={`${state.contactos.length} gestiones de ejemplo y nuevas en esta sesión`} />
+        {state.contactos.length === 0 ? <Vacio mensaje="Aún no hay gestiones registradas" /> : (
+          <div className="divide-y divide-slate-100">
+            {state.contactos.map((g) => (
+              <div key={g.id} className="flex flex-wrap items-center gap-3 px-5 py-3 text-sm">
+                <span className="font-medium text-slate-800">{g.socioId}</span>
+                <Pill tono="indigo">{g.canal}</Pill>
+                <span className="text-slate-600">{g.observaciones}</span>
+                <span className="ml-auto text-xs text-slate-500">Seguimiento {g.fechaSeguimiento}</span>
+                <span className="font-semibold tabular-nums text-amber-700">{fmt(g.puntosPrometidos)} pts</span>
+                <Pill tono="emerald">{g.estado}</Pill>
+              </div>
+            ))}
+          </div>
+        )}
+      </Card>
     </>
   );
 }

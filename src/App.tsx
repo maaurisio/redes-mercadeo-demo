@@ -47,7 +47,8 @@ function vista(ruta: Ruta, navegar: (r: Ruta) => void) {
     case 'desempeno': return <Desempeno />;
     case 'distribucion': return <Distribucion navegar={navegar} />;
     case 'evolucion': return <Evolucion />;
-    case 'exportar': return <Exportar />;
+    case 'exportar':
+    case 'exportacion': return <Exportar />;
     case 'cuentas': return <Cuentas />;
     case 'planes': return <Planes />;
     default: return <Dashboard navegar={navegar} />;

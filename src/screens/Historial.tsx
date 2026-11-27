@@ -6,7 +6,7 @@ import { Btn, Card, CardHeader, Encabezado, Pill, Vacio } from '../components/ui
 
 export function Historial({ navegar }: { navegar: (r: Ruta) => void }) {
   const { state } = useApp();
-  const cortes = [...state.cortes].reverse();
+  const registros = [...state.historialCargas].reverse();
 
   return (
     <>
@@ -16,8 +16,8 @@ export function Historial({ navegar }: { navegar: (r: Ruta) => void }) {
         acciones={<Btn variant="outline" onClick={() => navegar('importar')}><History size={15} /> Nueva carga</Btn>}
       />
       <Card>
-        <CardHeader titulo="Cortes importados" subtitulo={`${state.cortes.length} registros en la sesión`} />
-        {cortes.length === 0 ? <Vacio mensaje="Aún no hay cortes importados" /> : (
+        <CardHeader titulo="Cortes importados" subtitulo={`${registros.length} registros en la sesión (incluye la línea base precargada)`} />
+        {registros.length === 0 ? <Vacio mensaje="Aún no hay cortes importados" /> : (
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead className="bg-slate-50 text-left text-xs uppercase tracking-wide text-slate-500">
@@ -29,31 +29,34 @@ export function Historial({ navegar }: { navegar: (r: Ruta) => void }) {
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
-                {cortes.map((corte, idx) => {
-                  const anterior = cortes[idx + 1];
-                  const deltaPuntos = anterior ? corte.kpis.puntos - anterior.kpis.puntos : 0;
-                  const anteriores = new Map(anterior?.validas.map((s) => [String(s.ID_Socio), String(s.Hizo_Pedido)]) ?? []);
-                  const conversiones = anterior
+                {registros.map((registro, idx) => {
+                  const corte = state.cortes.find((c) => c.fileName === registro.archivo);
+                  const anterior = registros[idx + 1];
+                  const anteriorCorte = anterior ? state.cortes.find((c) => c.fileName === anterior.archivo) : undefined;
+                  const deltaPuntos = anterior ? registro.puntos - anterior.puntos : 0;
+                  const anteriores = new Map(anteriorCorte?.validas.map((s) => [String(s.ID_Socio), String(s.Hizo_Pedido)]) ?? []);
+                  const conversiones = corte && anteriorCorte
                     ? corte.validas.filter((s) => String(s.Hizo_Pedido) === 'Sí' && anteriores.get(String(s.ID_Socio)) !== 'Sí').length
                     : 0;
                   return (
-                    <tr key={corte.id} className="hover:bg-slate-50/70">
-                      <td className="whitespace-nowrap px-5 py-3 text-slate-600">{corte.importadoEn}</td>
-                      <td className="px-5 py-3 text-slate-600">Líder demo · Cuenta {corte.cuenta}</td>
-                      <td className="px-5 py-3 font-medium text-slate-800">{corte.fileName}</td>
-                      <td className="px-5 py-3">{corte.campana} · día {corte.diaCampana}</td>
-                      <td className="px-5 py-3 text-right tabular-nums">{fmt(corte.validas.length)}</td>
-                      <td className="px-5 py-3 text-right tabular-nums font-semibold">{fmt(corte.kpis.puntos)}</td>
+                    <tr key={registro.id} className="hover:bg-slate-50/70">
+                      <td className="whitespace-nowrap px-5 py-3 text-slate-600">{registro.fecha}</td>
+                      <td className="px-5 py-3 text-slate-600">{registro.usuario}</td>
+                      <td className="px-5 py-3 font-medium text-slate-800">
+                        {registro.archivo}
+                        {registro.nota && <span className="block text-[11px] font-normal text-slate-400">{registro.nota}</span>}
+                      </td>
+                      <td className="px-5 py-3">{registro.campana} · Cuenta {registro.cuenta}</td>
+                      <td className="px-5 py-3 text-right tabular-nums">{fmt(registro.filas)}</td>
+                      <td className="px-5 py-3 text-right tabular-nums font-semibold">{fmt(registro.puntos)}</td>
                       <td className="px-5 py-3">
-                        {!anterior ? <Pill>Corte inicial</Pill> : (
+                        {!anterior ? <Pill>Registro inicial</Pill> : (
                           <div className="space-y-1">
                             <Pill tono={deltaPuntos >= 0 ? 'emerald' : 'rose'}>
                               <TrendingUp size={12} /> {deltaPuntos >= 0 ? '+' : ''}{fmt(deltaPuntos)} pts
                             </Pill>
                             {conversiones > 0 && (
-                              <p className="text-xs font-medium text-indigo-600">
-                                {conversiones} socios pasaron de Sin Pedido a Con Pedido
-                              </p>
+                              <p className="text-xs font-medium text-indigo-600">{conversiones} socios pasaron de Sin Pedido a Con Pedido</p>
                             )}
                           </div>
                         )}

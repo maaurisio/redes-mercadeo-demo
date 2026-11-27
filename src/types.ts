@@ -121,6 +121,18 @@ export interface LineaBase {
   origen: 'precargada' | 'usuario';
 }
 
+export interface RegistroCarga {
+  id: string;
+  fecha: string;
+  usuario: string;
+  archivo: string;
+  campana: string;
+  filas: number;
+  puntos: number;
+  cuenta: CuentaId;
+  nota?: string;
+}
+
 export interface AppState {
   cortes: Corte[];
   activeCorteId: string | null;
@@ -141,6 +153,7 @@ export interface AppState {
   lineaBase: LineaBase | null;
   cuentas: CuentaConfig[];
   auditoria: EntradaAuditoria[];
+  historialCargas: RegistroCarga[];
 }
 
 export interface PreviewState {

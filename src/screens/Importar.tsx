@@ -68,7 +68,7 @@ export function Importar({ navegar }: { navegar: (r: Ruta) => void }) {
               {ARCHIVOS.map((a) => (
                 <button
                   key={a.nombre}
-                  onClick={() => void quickLoad(a.nombre)}
+                  onClick={async () => { await quickLoad(a.nombre, true); navegar('dashboard'); }}
                   disabled={cargando}
                   className="flex w-full items-center gap-3 px-5 py-3 text-left hover:bg-slate-50 disabled:opacity-50"
                 >
@@ -77,7 +77,7 @@ export function Importar({ navegar }: { navegar: (r: Ruta) => void }) {
                     <span className="block text-sm font-medium text-slate-800">{a.nombre}</span>
                     <span className="block text-xs text-slate-500">{a.etiqueta}</span>
                   </span>
-                  <span className="rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-medium text-slate-600">Analizar</span>
+                  <span className="rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-medium text-slate-600">Cargar y aplicar</span>
                 </button>
               ))}
             </div>

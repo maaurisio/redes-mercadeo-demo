@@ -5,8 +5,11 @@ import { texto } from '../lib/format';
 import { Btn, Card, CardHeader, Encabezado, KpiCard, Pill, Vacio } from '../components/ui';
 
 export function Previsualizar({ navegar }: { navegar: (r: Ruta) => void }) {
-  const { preview, confirmarImport, cancelarPreview } = useApp();
-  if (!preview?.parsed) {
+  const { preview, activeCorte, confirmarImport, cancelarPreview } = useApp();
+  const historico = !preview?.parsed && !!activeCorte;
+  const p = preview?.parsed ?? activeCorte;
+  const campanaDestino = preview?.campanaDestino ?? activeCorte?.campana ?? 'C15-2026';
+  if (!p) {
     return (
       <>
         <Encabezado titulo="Previsualizar importación" descripcion="No hay un archivo en preparación" />
@@ -15,14 +18,13 @@ export function Previsualizar({ navegar }: { navegar: (r: Ruta) => void }) {
       </>
     );
   }
-  const p = preview.parsed;
   const quitados = p.duplicadas.filter((d) => d.omitir).length;
 
   return (
     <>
       <Encabezado
         titulo="Previsualizar importación"
-        descripcion={`${p.fileName} · ${p.totalFilas} filas detectadas · campaña destino ${preview.campanaDestino}`}
+        descripcion={`${p.fileName} · ${p.totalFilas} filas detectadas · campaña destino ${campanaDestino}${historico ? ' · último corte importado' : ''}`}
         acciones={<Btn variant="outline" onClick={() => navegar('importar')}>Cambiar archivo</Btn>}
       />
       <div className="mb-5 grid grid-cols-2 gap-3 md:grid-cols-4">
@@ -95,8 +97,8 @@ export function Previsualizar({ navegar }: { navegar: (r: Ruta) => void }) {
           </div>
           <div className="flex gap-2">
             <Btn variant="ghost" onClick={cancelarPreview}>Cancelar</Btn>
-            <Btn variant="emerald" onClick={() => { confirmarImport(); navegar('dashboard'); }}>
-              Confirmar e Importar Corte
+            <Btn variant="emerald" onClick={() => { if (historico) navegar('dashboard'); else { confirmarImport(); navegar('dashboard'); } }}>
+              {historico ? 'Ver tablero del corte actual' : 'Confirmar e Importar Corte'}
             </Btn>
           </div>
         </div>

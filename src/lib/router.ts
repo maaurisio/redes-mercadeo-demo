@@ -5,7 +5,7 @@ export type Ruta =
   | 'socios' | 'socio' | 'lideres' | 'segmentos' | 'prioridades'
   | 'agenda' | 'contacto' | 'plantillas'
   | 'proyeccion' | 'comparacion' | 'proyeccion-socio' | 'real-vs-esperado'
-  | 'desempeno' | 'distribucion' | 'evolucion' | 'exportar'
+  | 'desempeno' | 'distribucion' | 'evolucion' | 'exportar' | 'exportacion'
   | 'cuentas' | 'planes';
 
 const VALIDAS: Ruta[] = [
@@ -13,7 +13,7 @@ const VALIDAS: Ruta[] = [
   'socios', 'socio', 'lideres', 'segmentos', 'prioridades',
   'agenda', 'contacto', 'plantillas',
   'proyeccion', 'comparacion', 'proyeccion-socio', 'real-vs-esperado',
-  'desempeno', 'distribucion', 'evolucion', 'exportar',
+  'desempeno', 'distribucion', 'evolucion', 'exportar', 'exportacion',
   'cuentas', 'planes',
 ];
 
