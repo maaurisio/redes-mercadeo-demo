@@ -1,0 +1,1792 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "semilla": 42,
+    "descripcion": "Datos 100% ficticios para prototipo SaaS de redes de mercadeo",
+    "esquema_columnas": 53,
+    "campana_vigente": "C15-2026",
+    "duracion_campana_dias": 21,
+    "campanias_por_anio": 17,
+    "reglas": {
+      "RN-03": "Con pedido solo si Hizo_Pedido='Sí' y Puntos_Personales > 0",
+      "RN-04": "0=Activo; 1/2/3=Inactivos; 4-17=Durmiente; 18-51=Histórico",
+      "RN-02_RN-05": "None antes de inscripción; 0 si existía pero no compró",
+      "RF-19": "Programa de bienvenida en campañas 1 a 4",
+      "RF-15": "Teléfono/correo faltantes se renderizan como N/D"
+    }
+  },
+  "escala_incentivos": [
+    {
+      "min": 0,
+      "max": 249,
+      "porcentaje": 0
+    },
+    {
+      "min": 250,
+      "max": 499,
+      "porcentaje": 3
+    },
+    {
+      "min": 500,
+      "max": 999,
+      "porcentaje": 6
+    },
+    {
+      "min": 1000,
+      "max": 1999,
+      "porcentaje": 9
+    },
+    {
+      "min": 2000,
+      "max": 3499,
+      "porcentaje": 12
+    },
+    {
+      "min": 3500,
+      "max": 5499,
+      "porcentaje": 15
+    },
+    {
+      "min": 5500,
+      "max": 7499,
+      "porcentaje": 18
+    },
+    {
+      "min": 7500,
+      "max": 1000000000,
+      "porcentaje": 25
+    }
+  ],
+  "columnas": [
+    "ID_Socio",
+    "Nombre_Completo",
+    "Telefono",
+    "Email",
+    "Fecha_Inscripcion",
+    "Fecha_Nacimiento",
+    "Tipo_Membresia",
+    "Segmento_Estado",
+    "ID_Lider_Directo",
+    "Nombre_Lider_Directo",
+    "ID_Lider_Subred",
+    "Nombre_Lider_Subred",
+    "Nivel_Jerarquico",
+    "Porcentaje_Incentivo",
+    "Campana_Actual",
+    "Fecha_Corte",
+    "Dia_Campana",
+    "Hizo_Pedido",
+    "Puntos_Personales",
+    "Puntos_Grupo",
+    "Valor_Pedido_MXN",
+    "Saldo_Monedero_MXN",
+    "Campanas_Sin_Pedido",
+    "Nivel_Programa_Bienvenida",
+    "Recibe_Catalogo_Impreso",
+    "Elegible_Premio_Lealtad",
+    "Pts_Camp_Ant_01",
+    "Pts_Camp_Ant_02",
+    "Pts_Camp_Ant_03",
+    "Pts_Camp_Ant_04",
+    "Pts_Camp_Ant_05",
+    "Pts_Camp_Ant_06",
+    "Pts_Camp_Ant_07",
+    "Pts_Camp_Ant_08",
+    "Pts_Camp_Ant_09",
+    "Pts_Camp_Ant_10",
+    "Pts_Camp_Ant_11",
+    "Pts_Camp_Ant_12",
+    "Pts_Camp_Ant_13",
+    "Pts_Camp_Ant_14",
+    "Pts_Camp_Ant_15",
+    "Pts_Camp_Ant_16",
+    "Pts_Camp_Ant_17",
+    "Estado_Republica",
+    "Ciudad",
+    "Canal_Ultimo_Pedido",
+    "Fecha_Ultimo_Pedido",
+    "Saldo_Credito_MXN",
+    "Limite_Credito_MXN",
+    "Reclutados_Directos",
+    "Reclutados_Activos",
+    "Premio_Ganado_Campana",
+    "Codigo_Zona"
+  ],
+  "archivos": {
+    "01_Red_Mediana_383_Corte1.xlsx": {
+      "archivo": "01_Red_Mediana_383_Corte1.xlsx",
+      "cuenta": "A",
+      "descripcion": "Escenario principal, corte 1 (día 8), con filas sucias",
+      "titular": {
+        "ID_Socio": "200000",
+        "Nombre_Completo": "Sofía Mendoza"
+      },
+      "campana": {
+        "actual": "C15-2026",
+        "dia": 8,
+        "duracion_dias": 21,
+        "campanias_por_anio": 17,
+        "fecha_corte": "2026-10-29",
+        "fecha_inicio": "2026-10-22",
+        "historicas": [
+          {
+            "columna": "Pts_Camp_Ant_01",
+            "campana": "C14-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_02",
+            "campana": "C13-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_03",
+            "campana": "C12-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_04",
+            "campana": "C11-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_05",
+            "campana": "C10-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_06",
+            "campana": "C9-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_07",
+            "campana": "C8-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_08",
+            "campana": "C7-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_09",
+            "campana": "C6-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_10",
+            "campana": "C5-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_11",
+            "campana": "C4-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_12",
+            "campana": "C3-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_13",
+            "campana": "C2-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_14",
+            "campana": "C1-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_15",
+            "campana": "C17-2025"
+          },
+          {
+            "columna": "Pts_Camp_Ant_16",
+            "campana": "C16-2025"
+          },
+          {
+            "columna": "Pts_Camp_Ant_17",
+            "campana": "C15-2025"
+          }
+        ]
+      },
+      "conteo_filas": {
+        "total_filas": 388,
+        "validas": 383,
+        "duplicadas": 2,
+        "observadas": 3
+      },
+      "kpis": {
+        "total_filas_validas": 383,
+        "activos": 94,
+        "sin_pedido": 289,
+        "inactivos_1": 80,
+        "inactivos_2": 45,
+        "inactivos_3": 30,
+        "durmientes_4_a_17": 74,
+        "historicos_18_a_51": 60,
+        "programa_bienvenida": 20,
+        "con_saldo_monedero": 28,
+        "con_saldo_monedero_sin_pedido": 28,
+        "no_con_pedido_pero_compro_campana_anterior": 31,
+        "cumpleaneros_dentro_de_campana": 30,
+        "puntos_totales_actuales": 7150,
+        "meta": 7500,
+        "brecha_vs_meta": 350,
+        "porcentaje_incentivo_red": 18,
+        "pedidos_campana_actual": 94,
+        "catalogo_impreso_si": 249,
+        "catalogo_impreso_no": 134
+      },
+      "desglose_lideres": [
+        {
+          "ID_Lider": "200000",
+          "Nombre_Lider": "Sofía Mendoza",
+          "es_titular": true,
+          "socios": 1,
+          "puntos_totales": 160,
+          "puntos_promedio": 160.0,
+          "activos": 1,
+          "sin_pedido": 0,
+          "porcentaje_incentivo": 0
+        },
+        {
+          "ID_Lider": "200010",
+          "Nombre_Lider": "Valeria Castillo",
+          "es_titular": false,
+          "socios": 109,
+          "puntos_totales": 2220,
+          "puntos_promedio": 20.37,
+          "activos": 28,
+          "sin_pedido": 81,
+          "porcentaje_incentivo": 12
+        },
+        {
+          "ID_Lider": "200020",
+          "Nombre_Lider": "Miguel Ángel Torres",
+          "es_titular": false,
+          "socios": 85,
+          "puntos_totales": 1660,
+          "puntos_promedio": 19.53,
+          "activos": 23,
+          "sin_pedido": 62,
+          "porcentaje_incentivo": 9
+        },
+        {
+          "ID_Lider": "200030",
+          "Nombre_Lider": "Rosa Elena Vázquez",
+          "es_titular": false,
+          "socios": 68,
+          "puntos_totales": 980,
+          "puntos_promedio": 14.41,
+          "activos": 14,
+          "sin_pedido": 54,
+          "porcentaje_incentivo": 6
+        },
+        {
+          "ID_Lider": "200040",
+          "Nombre_Lider": "Jorge Luis Herrera",
+          "es_titular": false,
+          "socios": 52,
+          "puntos_totales": 630,
+          "puntos_promedio": 12.12,
+          "activos": 9,
+          "sin_pedido": 43,
+          "porcentaje_incentivo": 6
+        },
+        {
+          "ID_Lider": "200050",
+          "Nombre_Lider": "Patricia Reyna",
+          "es_titular": false,
+          "socios": 40,
+          "puntos_totales": 880,
+          "puntos_promedio": 22.0,
+          "activos": 12,
+          "sin_pedido": 28,
+          "porcentaje_incentivo": 6
+        },
+        {
+          "ID_Lider": "200060",
+          "Nombre_Lider": "Fernando Duarte",
+          "es_titular": false,
+          "socios": 28,
+          "puntos_totales": 620,
+          "puntos_promedio": 22.14,
+          "activos": 7,
+          "sin_pedido": 21,
+          "porcentaje_incentivo": 6
+        }
+      ],
+      "casos_especiales": {
+        "17_campanas": "200101",
+        "5_campanas": "200102",
+        "no_con_pedido_pero_compro_ant_01": [
+          "200104",
+          "200115",
+          "200117",
+          "200127",
+          "200128",
+          "200129",
+          "200131",
+          "200140",
+          "200147",
+          "200150",
+          "200151",
+          "200155",
+          "200161",
+          "200166",
+          "200169",
+          "200180",
+          "200181",
+          "200184",
+          "200187",
+          "200191",
+          "200192",
+          "200193",
+          "200200",
+          "200203",
+          "200204",
+          "200207",
+          "200208",
+          "200225",
+          "200226",
+          "200234",
+          "200235"
+        ],
+        "saldo_monedero_sin_pedido_ids": [
+          "200100",
+          "200103",
+          "200105",
+          "200106",
+          "200108",
+          "200110",
+          "200112",
+          "200116",
+          "200118",
+          "200120",
+          "200121",
+          "200122",
+          "200125",
+          "200126",
+          "200133",
+          "200134",
+          "200136",
+          "200138",
+          "200139",
+          "200142",
+          "200144",
+          "200145",
+          "200146",
+          "200148",
+          "200149",
+          "200154",
+          "200156",
+          "200157"
+        ],
+        "cumpleaneros_ids": [
+          "200121",
+          "200152",
+          "200153",
+          "200189",
+          "200296",
+          "200314",
+          "200315",
+          "200350",
+          "200366",
+          "200372",
+          "200411",
+          "200425"
+        ],
+        "programa_bienvenida_ids": [
+          "200317",
+          "200419",
+          "200124",
+          "200347",
+          "200400",
+          "200396",
+          "200357",
+          "200143",
+          "200294",
+          "200258",
+          "200421",
+          "200198",
+          "200365",
+          "200311",
+          "200114",
+          "200449",
+          "200152",
+          "200135",
+          "200182",
+          "200230"
+        ]
+      },
+      "estadisticas_historicas_clave": {
+        "200101": {
+          "periodos_validos": 17,
+          "promedio": 108.24,
+          "mediana": 100,
+          "maximo": 200,
+          "valores": [
+            70,
+            100,
+            70,
+            140,
+            100,
+            70,
+            200,
+            100,
+            70,
+            140,
+            100,
+            70,
+            100,
+            70,
+            140,
+            100,
+            200
+          ]
+        },
+        "200102": {
+          "periodos_validos": 5,
+          "promedio": 96,
+          "mediana": 100,
+          "maximo": 140,
+          "valores": [
+            70,
+            100,
+            70,
+            140,
+            100
+          ]
+        },
+        "200000": {
+          "periodos_validos": 17,
+          "promedio": 64.12,
+          "mediana": 70,
+          "maximo": 200,
+          "valores": [
+            0,
+            0,
+            70,
+            70,
+            70,
+            0,
+            0,
+            200,
+            140,
+            0,
+            140,
+            0,
+            0,
+            200,
+            100,
+            100,
+            0
+          ]
+        }
+      },
+      "filas_observadas": [
+        {
+          "tipo": "sin_ID_Socio",
+          "fila": 386
+        },
+        {
+          "tipo": "telefono_vacio_y_email_vacio",
+          "fila": 387,
+          "ID_Socio": "209999"
+        },
+        {
+          "tipo": "puntos_personales_negativos",
+          "fila": 388,
+          "ID_Socio": "209998",
+          "valor": -50
+        }
+      ]
+    },
+    "02_Red_Mediana_383_Corte2.xlsx": {
+      "archivo": "02_Red_Mediana_383_Corte2.xlsx",
+      "cuenta": "A",
+      "descripcion": "Actualización Corte 2 (día 14): 5 socios compraron",
+      "titular": {
+        "ID_Socio": "200000",
+        "Nombre_Completo": "Sofía Mendoza"
+      },
+      "campana": {
+        "actual": "C15-2026",
+        "dia": 14,
+        "duracion_dias": 21,
+        "campanias_por_anio": 17,
+        "fecha_corte": "2026-11-04",
+        "fecha_inicio": "2026-10-22",
+        "historicas": [
+          {
+            "columna": "Pts_Camp_Ant_01",
+            "campana": "C14-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_02",
+            "campana": "C13-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_03",
+            "campana": "C12-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_04",
+            "campana": "C11-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_05",
+            "campana": "C10-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_06",
+            "campana": "C9-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_07",
+            "campana": "C8-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_08",
+            "campana": "C7-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_09",
+            "campana": "C6-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_10",
+            "campana": "C5-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_11",
+            "campana": "C4-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_12",
+            "campana": "C3-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_13",
+            "campana": "C2-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_14",
+            "campana": "C1-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_15",
+            "campana": "C17-2025"
+          },
+          {
+            "columna": "Pts_Camp_Ant_16",
+            "campana": "C16-2025"
+          },
+          {
+            "columna": "Pts_Camp_Ant_17",
+            "campana": "C15-2025"
+          }
+        ]
+      },
+      "conteo_filas": {
+        "total_filas": 383,
+        "validas": 383,
+        "duplicadas": 0,
+        "observadas": 0
+      },
+      "kpis": {
+        "total_filas_validas": 383,
+        "activos": 99,
+        "sin_pedido": 284,
+        "inactivos_1": 75,
+        "inactivos_2": 45,
+        "inactivos_3": 30,
+        "durmientes_4_a_17": 74,
+        "historicos_18_a_51": 60,
+        "programa_bienvenida": 20,
+        "con_saldo_monedero": 28,
+        "con_saldo_monedero_sin_pedido": 28,
+        "no_con_pedido_pero_compro_campana_anterior": 31,
+        "cumpleaneros_dentro_de_campana": 30,
+        "puntos_totales_actuales": 7560,
+        "meta": 7500,
+        "brecha_vs_meta": -60,
+        "porcentaje_incentivo_red": 25,
+        "pedidos_campana_actual": 99,
+        "catalogo_impreso_si": 249,
+        "catalogo_impreso_no": 134
+      },
+      "desglose_lideres": [
+        {
+          "ID_Lider": "200000",
+          "Nombre_Lider": "Sofía Mendoza",
+          "es_titular": true,
+          "socios": 1,
+          "puntos_totales": 160,
+          "puntos_promedio": 160.0,
+          "activos": 1,
+          "sin_pedido": 0,
+          "porcentaje_incentivo": 0
+        },
+        {
+          "ID_Lider": "200010",
+          "Nombre_Lider": "Valeria Castillo",
+          "es_titular": false,
+          "socios": 109,
+          "puntos_totales": 2220,
+          "puntos_promedio": 20.37,
+          "activos": 28,
+          "sin_pedido": 81,
+          "porcentaje_incentivo": 12
+        },
+        {
+          "ID_Lider": "200020",
+          "Nombre_Lider": "Miguel Ángel Torres",
+          "es_titular": false,
+          "socios": 85,
+          "puntos_totales": 1760,
+          "puntos_promedio": 20.71,
+          "activos": 24,
+          "sin_pedido": 61,
+          "porcentaje_incentivo": 9
+        },
+        {
+          "ID_Lider": "200030",
+          "Nombre_Lider": "Rosa Elena Vázquez",
+          "es_titular": false,
+          "socios": 68,
+          "puntos_totales": 1050,
+          "puntos_promedio": 15.44,
+          "activos": 15,
+          "sin_pedido": 53,
+          "porcentaje_incentivo": 9
+        },
+        {
+          "ID_Lider": "200040",
+          "Nombre_Lider": "Jorge Luis Herrera",
+          "es_titular": false,
+          "socios": 52,
+          "puntos_totales": 700,
+          "puntos_promedio": 13.46,
+          "activos": 10,
+          "sin_pedido": 42,
+          "porcentaje_incentivo": 6
+        },
+        {
+          "ID_Lider": "200050",
+          "Nombre_Lider": "Patricia Reyna",
+          "es_titular": false,
+          "socios": 40,
+          "puntos_totales": 980,
+          "puntos_promedio": 24.5,
+          "activos": 13,
+          "sin_pedido": 27,
+          "porcentaje_incentivo": 6
+        },
+        {
+          "ID_Lider": "200060",
+          "Nombre_Lider": "Fernando Duarte",
+          "es_titular": false,
+          "socios": 28,
+          "puntos_totales": 690,
+          "puntos_promedio": 24.64,
+          "activos": 8,
+          "sin_pedido": 20,
+          "porcentaje_incentivo": 6
+        }
+      ],
+      "casos_especiales": {
+        "17_campanas": "200101",
+        "5_campanas": "200102",
+        "no_con_pedido_pero_compro_ant_01": [
+          "200104",
+          "200115",
+          "200117",
+          "200127",
+          "200128",
+          "200129",
+          "200131",
+          "200140",
+          "200147",
+          "200150",
+          "200151",
+          "200155",
+          "200161",
+          "200166",
+          "200169",
+          "200180",
+          "200181",
+          "200184",
+          "200187",
+          "200191",
+          "200192",
+          "200193",
+          "200200",
+          "200203",
+          "200204",
+          "200207",
+          "200208",
+          "200225",
+          "200226",
+          "200234",
+          "200235"
+        ],
+        "saldo_monedero_sin_pedido_ids": [
+          "200100",
+          "200103",
+          "200105",
+          "200106",
+          "200108",
+          "200110",
+          "200112",
+          "200116",
+          "200118",
+          "200120",
+          "200121",
+          "200122",
+          "200125",
+          "200126",
+          "200133",
+          "200134",
+          "200136",
+          "200138",
+          "200139",
+          "200142",
+          "200144",
+          "200145",
+          "200146",
+          "200148",
+          "200149",
+          "200154",
+          "200156",
+          "200157"
+        ],
+        "cumpleaneros_ids": [
+          "200121",
+          "200152",
+          "200153",
+          "200189",
+          "200296",
+          "200314",
+          "200315",
+          "200350",
+          "200366",
+          "200372",
+          "200411",
+          "200425"
+        ],
+        "programa_bienvenida_ids": [
+          "200317",
+          "200419",
+          "200124",
+          "200347",
+          "200400",
+          "200396",
+          "200357",
+          "200143",
+          "200294",
+          "200258",
+          "200421",
+          "200198",
+          "200365",
+          "200311",
+          "200114",
+          "200449",
+          "200152",
+          "200135",
+          "200182",
+          "200230"
+        ]
+      },
+      "estadisticas_historicas_clave": {
+        "200101": {
+          "periodos_validos": 17,
+          "promedio": 108.24,
+          "mediana": 100,
+          "maximo": 200,
+          "valores": [
+            70,
+            100,
+            70,
+            140,
+            100,
+            70,
+            200,
+            100,
+            70,
+            140,
+            100,
+            70,
+            100,
+            70,
+            140,
+            100,
+            200
+          ]
+        },
+        "200102": {
+          "periodos_validos": 5,
+          "promedio": 96,
+          "mediana": 100,
+          "maximo": 140,
+          "valores": [
+            70,
+            100,
+            70,
+            140,
+            100
+          ]
+        },
+        "200000": {
+          "periodos_validos": 17,
+          "promedio": 64.12,
+          "mediana": 70,
+          "maximo": 200,
+          "valores": [
+            0,
+            0,
+            70,
+            70,
+            70,
+            0,
+            0,
+            200,
+            140,
+            0,
+            140,
+            0,
+            0,
+            200,
+            100,
+            100,
+            0
+          ]
+        }
+      },
+      "filas_observadas": [],
+      "cambios_entre_cortes": [
+        {
+          "ID_Socio": "200436",
+          "Nombre_Completo": "Pablo Andrés Gómez",
+          "ID_Lider_Subred": "200050",
+          "antes": {
+            "Hizo_Pedido": "No",
+            "Puntos_Personales": 0,
+            "Campanas_Sin_Pedido": 1,
+            "Segmento_Estado": "Inactivo_1",
+            "Puntos_Grupo": 880
+          },
+          "despues": {
+            "Hizo_Pedido": "Sí",
+            "Puntos_Personales": 100,
+            "Campanas_Sin_Pedido": 0,
+            "Segmento_Estado": "Activo"
+          }
+        },
+        {
+          "ID_Socio": "200239",
+          "Nombre_Completo": "David Eduardo Fuentes",
+          "ID_Lider_Subred": "200020",
+          "antes": {
+            "Hizo_Pedido": "No",
+            "Puntos_Personales": 0,
+            "Campanas_Sin_Pedido": 1,
+            "Segmento_Estado": "Inactivo_1",
+            "Puntos_Grupo": 1660
+          },
+          "despues": {
+            "Hizo_Pedido": "Sí",
+            "Puntos_Personales": 100,
+            "Campanas_Sin_Pedido": 0,
+            "Segmento_Estado": "Activo"
+          }
+        },
+        {
+          "ID_Socio": "200462",
+          "Nombre_Completo": "Wenceslao Omar Navarro",
+          "ID_Lider_Subred": "200060",
+          "antes": {
+            "Hizo_Pedido": "No",
+            "Puntos_Personales": 0,
+            "Campanas_Sin_Pedido": 1,
+            "Segmento_Estado": "Inactivo_1",
+            "Puntos_Grupo": 620
+          },
+          "despues": {
+            "Hizo_Pedido": "Sí",
+            "Puntos_Personales": 70,
+            "Campanas_Sin_Pedido": 0,
+            "Segmento_Estado": "Activo"
+          }
+        },
+        {
+          "ID_Socio": "200362",
+          "Nombre_Completo": "Teresa de Jesús Castillo",
+          "ID_Lider_Subred": "200040",
+          "antes": {
+            "Hizo_Pedido": "No",
+            "Puntos_Personales": 0,
+            "Campanas_Sin_Pedido": 1,
+            "Segmento_Estado": "Inactivo_1",
+            "Puntos_Grupo": 630
+          },
+          "despues": {
+            "Hizo_Pedido": "Sí",
+            "Puntos_Personales": 70,
+            "Campanas_Sin_Pedido": 0,
+            "Segmento_Estado": "Activo"
+          }
+        },
+        {
+          "ID_Socio": "200296",
+          "Nombre_Completo": "Paola Andrea Medina",
+          "ID_Lider_Subred": "200030",
+          "antes": {
+            "Hizo_Pedido": "No",
+            "Puntos_Personales": 0,
+            "Campanas_Sin_Pedido": 1,
+            "Segmento_Estado": "Inactivo_1",
+            "Puntos_Grupo": 980
+          },
+          "despues": {
+            "Hizo_Pedido": "Sí",
+            "Puntos_Personales": 70,
+            "Campanas_Sin_Pedido": 0,
+            "Segmento_Estado": "Activo"
+          }
+        }
+      ]
+    },
+    "03_Red_Pequena_25_Socios.xlsx": {
+      "archivo": "03_Red_Pequena_25_Socios.xlsx",
+      "cuenta": "A",
+      "descripcion": "Red pequeña para demos rápidas de agenda y filtros",
+      "titular": {
+        "ID_Socio": "300000",
+        "Nombre_Completo": "Sofía Mendoza"
+      },
+      "campana": {
+        "actual": "C15-2026",
+        "dia": 8,
+        "duracion_dias": 21,
+        "campanias_por_anio": 17,
+        "fecha_corte": "2026-10-29",
+        "fecha_inicio": "2026-10-22",
+        "historicas": [
+          {
+            "columna": "Pts_Camp_Ant_01",
+            "campana": "C14-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_02",
+            "campana": "C13-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_03",
+            "campana": "C12-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_04",
+            "campana": "C11-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_05",
+            "campana": "C10-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_06",
+            "campana": "C9-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_07",
+            "campana": "C8-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_08",
+            "campana": "C7-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_09",
+            "campana": "C6-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_10",
+            "campana": "C5-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_11",
+            "campana": "C4-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_12",
+            "campana": "C3-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_13",
+            "campana": "C2-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_14",
+            "campana": "C1-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_15",
+            "campana": "C17-2025"
+          },
+          {
+            "columna": "Pts_Camp_Ant_16",
+            "campana": "C16-2025"
+          },
+          {
+            "columna": "Pts_Camp_Ant_17",
+            "campana": "C15-2025"
+          }
+        ]
+      },
+      "conteo_filas": {
+        "total_filas": 25,
+        "validas": 25,
+        "duplicadas": 0,
+        "observadas": 0
+      },
+      "kpis": {
+        "total_filas_validas": 25,
+        "activos": 9,
+        "sin_pedido": 16,
+        "inactivos_1": 5,
+        "inactivos_2": 3,
+        "inactivos_3": 2,
+        "durmientes_4_a_17": 4,
+        "historicos_18_a_51": 2,
+        "programa_bienvenida": 4,
+        "con_saldo_monedero": 0,
+        "con_saldo_monedero_sin_pedido": 0,
+        "no_con_pedido_pero_compro_campana_anterior": 0,
+        "cumpleaneros_dentro_de_campana": 1,
+        "puntos_totales_actuales": 780,
+        "meta": 1000,
+        "brecha_vs_meta": 220,
+        "porcentaje_incentivo_red": 6,
+        "pedidos_campana_actual": 9,
+        "catalogo_impreso_si": 19,
+        "catalogo_impreso_no": 6
+      },
+      "desglose_lideres": [
+        {
+          "ID_Lider": "300000",
+          "Nombre_Lider": "Sofía Mendoza",
+          "es_titular": true,
+          "socios": 1,
+          "puntos_totales": 100,
+          "puntos_promedio": 100.0,
+          "activos": 1,
+          "sin_pedido": 0,
+          "porcentaje_incentivo": 0
+        },
+        {
+          "ID_Lider": "300010",
+          "Nombre_Lider": "Daniela Ávila",
+          "es_titular": false,
+          "socios": 12,
+          "puntos_totales": 510,
+          "puntos_promedio": 42.5,
+          "activos": 6,
+          "sin_pedido": 6,
+          "porcentaje_incentivo": 6
+        },
+        {
+          "ID_Lider": "300020",
+          "Nombre_Lider": "Hugo Navarro",
+          "es_titular": false,
+          "socios": 12,
+          "puntos_totales": 170,
+          "puntos_promedio": 14.17,
+          "activos": 2,
+          "sin_pedido": 10,
+          "porcentaje_incentivo": 0
+        }
+      ],
+      "casos_especiales": {
+        "17_campanas": null,
+        "5_campanas": null,
+        "no_con_pedido_pero_compro_ant_01": [],
+        "saldo_monedero_sin_pedido_ids": [],
+        "cumpleaneros_ids": [],
+        "programa_bienvenida_ids": [
+          "300118",
+          "300103",
+          "300101",
+          "300108"
+        ]
+      },
+      "estadisticas_historicas_clave": {},
+      "filas_observadas": []
+    },
+    "04_Red_Grande_1500_Socios.xlsx": {
+      "archivo": "04_Red_Grande_1500_Socios.xlsx",
+      "cuenta": "A",
+      "descripcion": "Red grande para pruebas de rendimiento a escala",
+      "titular": {
+        "ID_Socio": "400000",
+        "Nombre_Completo": "Sofía Mendoza"
+      },
+      "campana": {
+        "actual": "C15-2026",
+        "dia": 8,
+        "duracion_dias": 21,
+        "campanias_por_anio": 17,
+        "fecha_corte": "2026-10-29",
+        "fecha_inicio": "2026-10-22",
+        "historicas": [
+          {
+            "columna": "Pts_Camp_Ant_01",
+            "campana": "C14-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_02",
+            "campana": "C13-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_03",
+            "campana": "C12-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_04",
+            "campana": "C11-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_05",
+            "campana": "C10-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_06",
+            "campana": "C9-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_07",
+            "campana": "C8-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_08",
+            "campana": "C7-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_09",
+            "campana": "C6-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_10",
+            "campana": "C5-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_11",
+            "campana": "C4-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_12",
+            "campana": "C3-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_13",
+            "campana": "C2-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_14",
+            "campana": "C1-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_15",
+            "campana": "C17-2025"
+          },
+          {
+            "columna": "Pts_Camp_Ant_16",
+            "campana": "C16-2025"
+          },
+          {
+            "columna": "Pts_Camp_Ant_17",
+            "campana": "C15-2025"
+          }
+        ]
+      },
+      "conteo_filas": {
+        "total_filas": 1500,
+        "validas": 1500,
+        "duplicadas": 0,
+        "observadas": 0
+      },
+      "kpis": {
+        "total_filas_validas": 1500,
+        "activos": 380,
+        "sin_pedido": 1120,
+        "inactivos_1": 320,
+        "inactivos_2": 220,
+        "inactivos_3": 160,
+        "durmientes_4_a_17": 260,
+        "historicos_18_a_51": 160,
+        "programa_bienvenida": 60,
+        "con_saldo_monedero": 0,
+        "con_saldo_monedero_sin_pedido": 0,
+        "no_con_pedido_pero_compro_campana_anterior": 0,
+        "cumpleaneros_dentro_de_campana": 69,
+        "puntos_totales_actuales": 39020,
+        "meta": 40000,
+        "brecha_vs_meta": 980,
+        "porcentaje_incentivo_red": 25,
+        "pedidos_campana_actual": 380,
+        "catalogo_impreso_si": 1080,
+        "catalogo_impreso_no": 420
+      },
+      "desglose_lideres": [
+        {
+          "ID_Lider": "400000",
+          "Nombre_Lider": "Sofía Mendoza",
+          "es_titular": true,
+          "socios": 1,
+          "puntos_totales": 100,
+          "puntos_promedio": 100.0,
+          "activos": 1,
+          "sin_pedido": 0,
+          "porcentaje_incentivo": 0
+        },
+        {
+          "ID_Lider": "400010",
+          "Nombre_Lider": "Alicia Treviño",
+          "es_titular": false,
+          "socios": 159,
+          "puntos_totales": 3740,
+          "puntos_promedio": 23.52,
+          "activos": 40,
+          "sin_pedido": 119,
+          "porcentaje_incentivo": 15
+        },
+        {
+          "ID_Lider": "400020",
+          "Nombre_Lider": "Benjamín Ochoa",
+          "es_titular": false,
+          "socios": 150,
+          "puntos_totales": 3690,
+          "puntos_promedio": 24.6,
+          "activos": 38,
+          "sin_pedido": 112,
+          "porcentaje_incentivo": 15
+        },
+        {
+          "ID_Lider": "400030",
+          "Nombre_Lider": "Clara Eugenia Paz",
+          "es_titular": false,
+          "socios": 145,
+          "puntos_totales": 3740,
+          "puntos_promedio": 25.79,
+          "activos": 37,
+          "sin_pedido": 108,
+          "porcentaje_incentivo": 15
+        },
+        {
+          "ID_Lider": "400040",
+          "Nombre_Lider": "Dante Salinas",
+          "es_titular": false,
+          "socios": 140,
+          "puntos_totales": 3390,
+          "puntos_promedio": 24.21,
+          "activos": 36,
+          "sin_pedido": 104,
+          "porcentaje_incentivo": 12
+        },
+        {
+          "ID_Lider": "400050",
+          "Nombre_Lider": "Elisa Robledo",
+          "es_titular": false,
+          "socios": 135,
+          "puntos_totales": 3760,
+          "puntos_promedio": 27.85,
+          "activos": 34,
+          "sin_pedido": 101,
+          "porcentaje_incentivo": 15
+        },
+        {
+          "ID_Lider": "400060",
+          "Nombre_Lider": "Fabián Lozoya",
+          "es_titular": false,
+          "socios": 130,
+          "puntos_totales": 2980,
+          "puntos_promedio": 22.92,
+          "activos": 29,
+          "sin_pedido": 101,
+          "porcentaje_incentivo": 12
+        },
+        {
+          "ID_Lider": "400070",
+          "Nombre_Lider": "Gabriela Serrano",
+          "es_titular": false,
+          "socios": 125,
+          "puntos_totales": 3230,
+          "puntos_promedio": 25.84,
+          "activos": 27,
+          "sin_pedido": 98,
+          "porcentaje_incentivo": 12
+        },
+        {
+          "ID_Lider": "400080",
+          "Nombre_Lider": "Humberto Castañeda",
+          "es_titular": false,
+          "socios": 120,
+          "puntos_totales": 3900,
+          "puntos_promedio": 32.5,
+          "activos": 38,
+          "sin_pedido": 82,
+          "porcentaje_incentivo": 15
+        },
+        {
+          "ID_Lider": "400090",
+          "Nombre_Lider": "Irma Beltrán",
+          "es_titular": false,
+          "socios": 115,
+          "puntos_totales": 3230,
+          "puntos_promedio": 28.09,
+          "activos": 28,
+          "sin_pedido": 87,
+          "porcentaje_incentivo": 12
+        },
+        {
+          "ID_Lider": "400100",
+          "Nombre_Lider": "José Luis Arreola",
+          "es_titular": false,
+          "socios": 105,
+          "puntos_totales": 2820,
+          "puntos_promedio": 26.86,
+          "activos": 29,
+          "sin_pedido": 76,
+          "porcentaje_incentivo": 12
+        },
+        {
+          "ID_Lider": "400110",
+          "Nombre_Lider": "Karen Espinoza",
+          "es_titular": false,
+          "socios": 100,
+          "puntos_totales": 2630,
+          "puntos_promedio": 26.3,
+          "activos": 26,
+          "sin_pedido": 74,
+          "porcentaje_incentivo": 12
+        },
+        {
+          "ID_Lider": "400120",
+          "Nombre_Lider": "Lorenzo Fonseca",
+          "es_titular": false,
+          "socios": 75,
+          "puntos_totales": 1810,
+          "puntos_promedio": 24.13,
+          "activos": 17,
+          "sin_pedido": 58,
+          "porcentaje_incentivo": 9
+        }
+      ],
+      "casos_especiales": {
+        "17_campanas": null,
+        "5_campanas": null,
+        "no_con_pedido_pero_compro_ant_01": [],
+        "saldo_monedero_sin_pedido_ids": [],
+        "cumpleaneros_ids": [],
+        "programa_bienvenida_ids": [
+          "400550",
+          "400301",
+          "400500",
+          "401210",
+          "401473",
+          "400691",
+          "400842",
+          "401022",
+          "401254",
+          "400573",
+          "400722",
+          "401194",
+          "401541",
+          "400592",
+          "400854",
+          "401422",
+          "400355",
+          "400527",
+          "401572",
+          "401600",
+          "401599",
+          "400511",
+          "401125",
+          "401283",
+          "400887",
+          "401257",
+          "400575",
+          "401467",
+          "401182",
+          "401398",
+          "400948",
+          "400821",
+          "400892",
+          "401015",
+          "400488",
+          "400848",
+          "400307",
+          "400814",
+          "400709",
+          "401475",
+          "401317",
+          "401353",
+          "401602",
+          "400348",
+          "401190",
+          "400675",
+          "400396",
+          "401617",
+          "401270",
+          "400694",
+          "401554",
+          "400926",
+          "400431",
+          "400283",
+          "400728",
+          "400950",
+          "400286",
+          "401624",
+          "400868",
+          "400393"
+        ]
+      },
+      "estadisticas_historicas_clave": {},
+      "filas_observadas": []
+    },
+    "05_Cuenta_B_Aislada_120_Socios.xlsx": {
+      "archivo": "05_Cuenta_B_Aislada_120_Socios.xlsx",
+      "cuenta": "B",
+      "descripcion": "Cuenta B aislada (F09/CA-14), prefijo 500XXX y meta 4,500",
+      "titular": {
+        "ID_Socio": "500000",
+        "Nombre_Completo": "Carlos Ramírez"
+      },
+      "campana": {
+        "actual": "C15-2026",
+        "dia": 8,
+        "duracion_dias": 21,
+        "campanias_por_anio": 17,
+        "fecha_corte": "2026-10-29",
+        "fecha_inicio": "2026-10-22",
+        "historicas": [
+          {
+            "columna": "Pts_Camp_Ant_01",
+            "campana": "C14-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_02",
+            "campana": "C13-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_03",
+            "campana": "C12-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_04",
+            "campana": "C11-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_05",
+            "campana": "C10-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_06",
+            "campana": "C9-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_07",
+            "campana": "C8-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_08",
+            "campana": "C7-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_09",
+            "campana": "C6-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_10",
+            "campana": "C5-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_11",
+            "campana": "C4-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_12",
+            "campana": "C3-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_13",
+            "campana": "C2-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_14",
+            "campana": "C1-2026"
+          },
+          {
+            "columna": "Pts_Camp_Ant_15",
+            "campana": "C17-2025"
+          },
+          {
+            "columna": "Pts_Camp_Ant_16",
+            "campana": "C16-2025"
+          },
+          {
+            "columna": "Pts_Camp_Ant_17",
+            "campana": "C15-2025"
+          }
+        ]
+      },
+      "conteo_filas": {
+        "total_filas": 120,
+        "validas": 120,
+        "duplicadas": 0,
+        "observadas": 0
+      },
+      "kpis": {
+        "total_filas_validas": 120,
+        "activos": 35,
+        "sin_pedido": 85,
+        "inactivos_1": 25,
+        "inactivos_2": 18,
+        "inactivos_3": 12,
+        "durmientes_4_a_17": 20,
+        "historicos_18_a_51": 10,
+        "programa_bienvenida": 8,
+        "con_saldo_monedero": 0,
+        "con_saldo_monedero_sin_pedido": 0,
+        "no_con_pedido_pero_compro_campana_anterior": 0,
+        "cumpleaneros_dentro_de_campana": 6,
+        "puntos_totales_actuales": 4380,
+        "meta": 4500,
+        "brecha_vs_meta": 120,
+        "porcentaje_incentivo_red": 15,
+        "pedidos_campana_actual": 35,
+        "catalogo_impreso_si": 90,
+        "catalogo_impreso_no": 30
+      },
+      "desglose_lideres": [
+        {
+          "ID_Lider": "500000",
+          "Nombre_Lider": "Carlos Ramírez",
+          "es_titular": true,
+          "socios": 1,
+          "puntos_totales": 120,
+          "puntos_promedio": 120.0,
+          "activos": 1,
+          "sin_pedido": 0,
+          "porcentaje_incentivo": 0
+        },
+        {
+          "ID_Lider": "500010",
+          "Nombre_Lider": "Marisol Aguilar",
+          "es_titular": false,
+          "socios": 49,
+          "puntos_totales": 2080,
+          "puntos_promedio": 42.45,
+          "activos": 16,
+          "sin_pedido": 33,
+          "porcentaje_incentivo": 12
+        },
+        {
+          "ID_Lider": "500020",
+          "Nombre_Lider": "Raúl Sandoval",
+          "es_titular": false,
+          "socios": 40,
+          "puntos_totales": 1330,
+          "puntos_promedio": 33.25,
+          "activos": 11,
+          "sin_pedido": 29,
+          "porcentaje_incentivo": 9
+        },
+        {
+          "ID_Lider": "500030",
+          "Nombre_Lider": "Elena Robles",
+          "es_titular": false,
+          "socios": 30,
+          "puntos_totales": 850,
+          "puntos_promedio": 28.33,
+          "activos": 7,
+          "sin_pedido": 23,
+          "porcentaje_incentivo": 6
+        }
+      ],
+      "casos_especiales": {
+        "17_campanas": null,
+        "5_campanas": null,
+        "no_con_pedido_pero_compro_ant_01": [],
+        "saldo_monedero_sin_pedido_ids": [],
+        "cumpleaneros_ids": [],
+        "programa_bienvenida_ids": [
+          "500214",
+          "500195",
+          "500159",
+          "500115",
+          "500178",
+          "500130",
+          "500151",
+          "500186"
+        ]
+      },
+      "estadisticas_historicas_clave": {},
+      "filas_observadas": []
+    }
+  },
+  "comparativa_cortes": {
+    "corte_1": {
+      "total_filas_validas": 383,
+      "activos": 94,
+      "sin_pedido": 289,
+      "inactivos_1": 80,
+      "inactivos_2": 45,
+      "inactivos_3": 30,
+      "durmientes_4_a_17": 74,
+      "historicos_18_a_51": 60,
+      "programa_bienvenida": 20,
+      "con_saldo_monedero": 28,
+      "con_saldo_monedero_sin_pedido": 28,
+      "no_con_pedido_pero_compro_campana_anterior": 31,
+      "cumpleaneros_dentro_de_campana": 30,
+      "puntos_totales_actuales": 7150,
+      "meta": 7500,
+      "brecha_vs_meta": 350,
+      "porcentaje_incentivo_red": 18,
+      "pedidos_campana_actual": 94,
+      "catalogo_impreso_si": 249,
+      "catalogo_impreso_no": 134
+    },
+    "corte_2": {
+      "total_filas_validas": 383,
+      "activos": 99,
+      "sin_pedido": 284,
+      "inactivos_1": 75,
+      "inactivos_2": 45,
+      "inactivos_3": 30,
+      "durmientes_4_a_17": 74,
+      "historicos_18_a_51": 60,
+      "programa_bienvenida": 20,
+      "con_saldo_monedero": 28,
+      "con_saldo_monedero_sin_pedido": 28,
+      "no_con_pedido_pero_compro_campana_anterior": 31,
+      "cumpleaneros_dentro_de_campana": 30,
+      "puntos_totales_actuales": 7560,
+      "meta": 7500,
+      "brecha_vs_meta": -60,
+      "porcentaje_incentivo_red": 25,
+      "pedidos_campana_actual": 99,
+      "catalogo_impreso_si": 249,
+      "catalogo_impreso_no": 134
+    },
+    "delta": {
+      "activos": 5,
+      "sin_pedido": -5,
+      "inactivos_1": -5,
+      "pedidos_campana_actual": 5,
+      "puntos_totales_actuales": 410,
+      "brecha_vs_meta": -410,
+      "porcentaje_incentivo_red": 7
+    },
+    "socios_que_compraron_entre_cortes": [
+      {
+        "ID_Socio": "200436",
+        "Nombre_Completo": "Pablo Andrés Gómez",
+        "ID_Lider_Subred": "200050",
+        "antes": {
+          "Hizo_Pedido": "No",
+          "Puntos_Personales": 0,
+          "Campanas_Sin_Pedido": 1,
+          "Segmento_Estado": "Inactivo_1",
+          "Puntos_Grupo": 880
+        },
+        "despues": {
+          "Hizo_Pedido": "Sí",
+          "Puntos_Personales": 100,
+          "Campanas_Sin_Pedido": 0,
+          "Segmento_Estado": "Activo"
+        }
+      },
+      {
+        "ID_Socio": "200239",
+        "Nombre_Completo": "David Eduardo Fuentes",
+        "ID_Lider_Subred": "200020",
+        "antes": {
+          "Hizo_Pedido": "No",
+          "Puntos_Personales": 0,
+          "Campanas_Sin_Pedido": 1,
+          "Segmento_Estado": "Inactivo_1",
+          "Puntos_Grupo": 1660
+        },
+        "despues": {
+          "Hizo_Pedido": "Sí",
+          "Puntos_Personales": 100,
+          "Campanas_Sin_Pedido": 0,
+          "Segmento_Estado": "Activo"
+        }
+      },
+      {
+        "ID_Socio": "200462",
+        "Nombre_Completo": "Wenceslao Omar Navarro",
+        "ID_Lider_Subred": "200060",
+        "antes": {
+          "Hizo_Pedido": "No",
+          "Puntos_Personales": 0,
+          "Campanas_Sin_Pedido": 1,
+          "Segmento_Estado": "Inactivo_1",
+          "Puntos_Grupo": 620
+        },
+        "despues": {
+          "Hizo_Pedido": "Sí",
+          "Puntos_Personales": 70,
+          "Campanas_Sin_Pedido": 0,
+          "Segmento_Estado": "Activo"
+        }
+      },
+      {
+        "ID_Socio": "200362",
+        "Nombre_Completo": "Teresa de Jesús Castillo",
+        "ID_Lider_Subred": "200040",
+        "antes": {
+          "Hizo_Pedido": "No",
+          "Puntos_Personales": 0,
+          "Campanas_Sin_Pedido": 1,
+          "Segmento_Estado": "Inactivo_1",
+          "Puntos_Grupo": 630
+        },
+        "despues": {
+          "Hizo_Pedido": "Sí",
+          "Puntos_Personales": 70,
+          "Campanas_Sin_Pedido": 0,
+          "Segmento_Estado": "Activo"
+        }
+      },
+      {
+        "ID_Socio": "200296",
+        "Nombre_Completo": "Paola Andrea Medina",
+        "ID_Lider_Subred": "200030",
+        "antes": {
+          "Hizo_Pedido": "No",
+          "Puntos_Personales": 0,
+          "Campanas_Sin_Pedido": 1,
+          "Segmento_Estado": "Inactivo_1",
+          "Puntos_Grupo": 980
+        },
+        "despues": {
+          "Hizo_Pedido": "Sí",
+          "Puntos_Personales": 70,
+          "Campanas_Sin_Pedido": 0,
+          "Segmento_Estado": "Activo"
+        }
+      }
+    ],
+    "lideres_afectados": [
+      "200020",
+      "200030",
+      "200040",
+      "200050",
+      "200060"
+    ]
+  },
+  "validaciones": {
+    "esquema_53_columnas": true,
+    "hoja_principal": "Reporte_Red",
+    "total_filas_corte1": 388,
+    "socios_unicos_corte1": 383,
+    "duplicadas_corte1": 2,
+    "observadas_corte1": 3,
+    "no_con_pedido_con_compra_anterior": 31,
+    "monedero_sin_pedido_minimo": 25,
+    "conversiones_corte2": 5
+  }
+}

@@ -1,0 +1,32 @@
+# Dependencias y build
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# Variables de entorno
+.env
+.env.*
+!.env.example
+
+# Python / generador de datos
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Archivos temporales del sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.log
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# NOTA: generate_mock_data.py, data/mock_excel/ y public/mock/ SÍ se versionan.
